@@ -20,36 +20,7 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-				<div id="resultsGoogleBooks">
-					<div class="book">
-						<div class="row">
-							<div class="col-xs-12">
-								<div class="row">
-									<div class="col-xs-12">
-										<h2>Title</h2>
-										<h4>Author</h4>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-4">
-										<img src="fillmurray.com/100/100">
-									</div>
-									<div class="col-xs-8">
-										<div class="glyphicon glyphicon-star"></div>
-										<div class="glyphicon glyphicon-star"></div>
-										<div class="glyphicon glyphicon-star"></div>
-										<div class="glyphicon glyphicon-star"></div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<div class="btn btn-info btn-block">Buy $14.99</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<div id="resultsGoogleBooks"></div>
 			</div>
 
 			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
@@ -64,10 +35,11 @@
 				<div id="resultsNews"></div>
 			</div>
 		</div>
-
-		
-		
-
 	</div>
+	<script>
+		$('#searchButton').on('click', function() {
+			doLookup($('#searchTerm').val());
+		});		
+	</script>
 </body>
 </html>
