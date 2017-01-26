@@ -1,4 +1,24 @@
 body {
+    /*background-image: url("shattered.png")*/
+}
+h2 { font-size: 15px;
+}
+h1 {
+   font-family: 'Days One', sans-serif;
+}
+.video {
+    height: 200px !important;
+    width: 356px !important;
+}
+.input-group-addon {
+        background-color: #5bc0de;
+    border-color: #46b8da;
+}
+.btn {
+    margin: 0 0 0 0 !important;
+}
+=======
+body {
 	background-image: url("http://prominentimport.co.za/wp-content/uploads/2014/10/Twitter-background-change-new-modern-clothes-blue-pattern-design.jpg");
 }
 
@@ -44,4 +64,3 @@ button {
 #searchTerm {
 	height: 35px;
 }
-
