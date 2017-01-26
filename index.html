@@ -3,13 +3,12 @@
 <head>
 	<title>The Aggregator</title>
 	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"> 
-	<link rel="stylesheet" 
-	type="text/css" 
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/superhero/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://bootswatch.com/superhero/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+		crossorigin="anonymous"></script>
+	<script src="googleBooks.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -26,7 +25,7 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-				<div id="resultsTwitter"></div>
+				<div id="resultsGoogleBooks"></div>
 			</div>
 
 			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
@@ -49,6 +48,11 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		$('#searchButton').on('click', function() {
+			doLookup($('#searchTerm').val());
+		});		
+	</script>
 </body>
 <script type="text/javascript" src="app.js"></script>
 </html>
