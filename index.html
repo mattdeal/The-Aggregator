@@ -2,10 +2,10 @@
 <html>
 <head>
 	<title>The Aggregator</title>
-	<link rel="stylesheet" 
-	type="text/css" 
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"> 
+  <link rel="stylesheet" type="text/css" href="https://bootswatch.com/superhero/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
 		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 		crossorigin="anonymous"></script>
 	<script src="googleBooks.js"></script>
@@ -14,8 +14,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
-				<input type="" id="searchTerm">
-				<button id="searchButton">Search</button>
+				<nav class="navbar navbar-inverse">
+					<div class="container-fluid">
+						<a class="navbar-brand" href="#">Media Aggregator</a>
+							<input type="text" class="pull-right" name="" id="searchTerm">
+							<button type="button" class="btn btn-default pull-right">Search <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+					</div>
+				</nav>
 			</div>			
 		</div>
 		<div class="row">
@@ -28,7 +33,14 @@
 			</div>
 
 			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-				<div id="resultsWikipedia"></div>
+				<div class="panel">
+					<div class="well body-well">
+						<h3>Gifs</h3>
+					</div>
+					<div class="panel-body">
+						<div id="resultsGiphy"></div>
+					</div>
+				</div>
 			</div>
 
 			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
@@ -42,4 +54,5 @@
 		});		
 	</script>
 </body>
+<script type="text/javascript" src="app.js"></script>
 </html>
