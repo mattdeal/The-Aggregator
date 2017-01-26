@@ -1,4 +1,4 @@
-﻿body {
+body {
     /*background-image: url("shattered.png")*/
 }
 h2 { font-size: 15px;
@@ -16,4 +16,51 @@ h1 {
 }
 .btn {
     margin: 0 0 0 0 !important;
+}
+=======
+body {
+	background-image: url("http://prominentimport.co.za/wp-content/uploads/2014/10/Twitter-background-change-new-modern-clothes-blue-pattern-design.jpg");
+}
+
+.giphy-embed {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #aabe
+}
+
+.body-well {
+	text-align: center;
+	border-bottom-width: 2px;
+	border-bottom-color: white;
+	border-bottom-style: double;
+	background-color: tomato;
+	font-family: 'Merriweather', serif;
+	border-radius: 20px;
+}
+
+.panel {
+	border-radius: 20px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: grey;
+}
+
+.navbar {
+	background-color: tomato;
+	border-style: solid;
+	border-color: grey;
+	font-family: 'Merriweather', serif;
+}
+
+
+button {
+	height: 35px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#searchTerm {
+	height: 35px;
 }
