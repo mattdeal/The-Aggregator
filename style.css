@@ -1,0 +1,38 @@
+img {
+	height: 75%;
+	width: 50%;
+}
+
+#photo {
+	float: left;
+	height: 200px;
+	width: 20%;
+}
+
+#title {
+	font-size: 30px;
+	font-family: Palatino Linotype;
+	font-weight: bold;
+	f
+}
+
+#author {
+	margin: 5px;
+	font-family: courier;
+}
+
+#link {
+	margin: 5px;
+	font-family: courier;
+}
+
+#published {
+	margin: 5px;
+	font-family: courier;
+}
+
+#text {
+	margin: 5px;
+	font-family: courier;
+	float: left;
+}
