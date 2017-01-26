@@ -1,0 +1,19 @@
+﻿body {
+    /*background-image: url("shattered.png")*/
+}
+h2 { font-size: 15px;
+}
+h1 {
+   font-family: 'Days One', sans-serif;
+}
+.video {
+    height: 200px !important;
+    width: 356px !important;
+}
+.input-group-addon {
+        background-color: #5bc0de;
+    border-color: #46b8da;
+}
+.btn {
+    margin: 0 0 0 0 !important;
+}

@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>The Aggregator</title>
-	<link rel="stylesheet" 
-	type="text/css" 
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>The Aggregator</title>
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Days+One" rel="stylesheet">
+    <script src="app.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="style.css" rel="stylesheet" />
+   
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<input type="" id="searchTerm">
-				<button id="searchButton">Search</button>
-			</div>			
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-				<div id="resultsTwitter"></div>
-			</div>
+<div class="container">
+    <div class="row">
 
-			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-				<div id="resultsYouTube"></div>
-			</div>
+        <div class="page-header co-lg-12">
+            <h1>The Aggregator</h1>
+            <form action="#">
+                <div class="row">
+                    <div class="input-group col-lg-4">
+                        <input type="text" class="form-control input-lg" id="searchTerm" placeholder="Type something..." autocomplete="off" />
 
-			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-				<div id="resultsWikipedia"></div>
-			</div>
+                        <div class="input-group-btn ">
+                            <button type="submit" value="Go!" class="btn btn-info btn-lg">GO!</button>
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div>
+       
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <div id="resultsTwitter"></div>
+        </div>
 
-			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-				<div id="resultsNews"></div>
-			</div>
-		</div>
-	</div>
+        <div id="results" class="col-lg-3">
+            <div class="item" style="display: none">
+                <h3>{{title}}</h3>
+                <iframe class="video w100" width="640" height="360" src="//www.youtube.com/embed/{{videoid}}" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div id="resultsWikipedia"></div>
+        </div>
+
+        <div class="col-lg-3">
+            <div id="resultsNews"></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
