@@ -4,7 +4,11 @@
 // pull out title, author, thumbnail, price and preview?
 
 $(document).ready(function(){
-	doLookup('flowers');
+	// doLookup('flowers');
+	$('#searchButton').on('click', function(event) {
+		event.preventDefault();
+		doLookup($('#searchTerm').val().trim());
+	});
 });
 
 function doLookup(query) {
