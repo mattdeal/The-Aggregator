@@ -3,12 +3,17 @@
 <head>
     <title>The Aggregator</title>
     <!--Jquery-->
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="news.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Days+One" rel="stylesheet">
-    
-    <script src="https://apis.google.com/js/client.js?onload=init"></script>
     <script src="googleBooks.js"></script>
+    <script src="app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Days+One" rel="stylesheet">
+    <script src="search.js"></script>
+    <script src="auth.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+    
+    
    
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="style.css" rel="stylesheet" />
@@ -34,13 +39,10 @@
        </div>       
     </div>
     <div class="row">
-        <div class="col-lg-3">
-            <div id="resultsTwitter"></div>
-        </div>
         <div id="results" class="col-lg-3">
             <div class="item" style="display: none">
                 <h3>{{title}}</h3>
-                <!-- <iframe class="video w100" width="640" height="360" src="//www.youtube.com/embed/{{videoid}}" frameborder="0" allowfullscreen></iframe> -->
+                 <iframe class="video w100" width="640" height="360" src="//www.youtube.com/embed/{{videoid}}" frameborder="0" allowfullscreen></iframe> 
             </div>
         </div>
         <div class="col-lg-3">
@@ -54,7 +56,7 @@
         </div>
     </div>
 </div>
-<script src="app.js"></script>
+
 </body>
 
 </html>
