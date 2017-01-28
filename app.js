@@ -1,9 +1,11 @@
  function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = res.replace(/\{\{(.*?)\}\}/g, function (e, r) { return t[n][r] }) } return res }
  function gifCall(term) {
      //debugger;
-     console.log("giphy");
+   
+     var gifDiv = $('#resultsGiphy');
      gifQueryUrl = "https://api.giphy.com/v1/gifs/random?tag=" + term + "&api_key=dc6zaTOxFJmzC";
-     for (i = 0; i < 3; i++) {
+     $("#resultsGiphy").empty();
+     for (i = 0; i < 4; i++) {
 
          $.ajax({
              url: gifQueryUrl,
@@ -14,7 +16,7 @@
              .done(function (response) {
                  gif = response.data;
                  console.log(response);
-                 var gifDiv = $('#resultsGiphy');
+                 
                  newDiv = $('<div>');
                  pic = $('<img>').attr({
                      class: 'giphy-embed',
@@ -53,10 +55,12 @@
          request.execute(function (response) {
              var results = response.result;
              $(".item").css("display", "block");
+             
              $("#results").html("");
              $.each(results.items, function (index, item) {
+                
                  $.get("item.html", function (data) {
-                     $("#results").append(tplawesome(data, [{ "title": item.snippet.title, "videoid": item.id.videoId }]));
+                     $("#results").append("<div class='col-md-4'>" + tplawesome(data, [{ "title": item.snippet.title, "videoid": item.id.videoId }])+"</div>");
                  });
              });
              resetVideoHeight();
@@ -64,6 +68,7 @@
      });
 
      $(window).on("resize", resetVideoHeight);
+     
  });
 
  function resetVideoHeight() {

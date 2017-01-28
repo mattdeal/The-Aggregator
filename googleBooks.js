@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 function doLookup(query) {
 	$.ajax({
-		url: 'https://www.googleapis.com/books/v1/volumes?q=' + query,
+	    url: 'https://www.googleapis.com/books/v1/volumes?q=' + query + "&maxResults=4",
 		type: 'GET',
 		success: function(response) {
 			console.log(response);
