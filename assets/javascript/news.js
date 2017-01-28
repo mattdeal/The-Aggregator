@@ -11,7 +11,6 @@ $(document).on('click', "#searchButton", function() {
 			var postData = (data);
 			var postArray = postData.posts
 			console.log(postData);
-			//console.log(postArray[i].text)
 			//console.log(postArray[0]);
 
 			//variables to set up news div
@@ -21,19 +20,17 @@ $(document).on('click', "#searchButton", function() {
 			var link = $("<div id ='url'>");
 			var published = $("<div id='published'>");
 			var text = $("<div id='text'>");
-		
-			
+
 
 			for (var i = 0; i < 1; i++) { 
 			title.prepend(postArray[i].title);
 			author.prepend(postArray[i].author);
 			published.prepend(postArray[i].published);
 			link.prepend(postArray[i].url);
-			//var subStringed = postArray[i].text.substring(0,200)
-			text.prepend(postArray[i].text.substring(0,200))
 			
 			
-			newDiv.prepend(text);
+			
+			
 			newDiv.prepend(link);
 			newDiv.prepend(published);
 			newDiv.prepend(author);
