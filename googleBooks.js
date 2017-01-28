@@ -18,18 +18,59 @@ function doLookup(query) {
 		success: function(response) {
 			console.log(response);
 			var books = response.items;
-			var bookList = $('#resultsGoogleBooks');
-			bookList.empty();
+			showBooks(books);
+			// this works, but we're trying something new
+			// var bookList = $('#resultsGoogleBooks');
+			// bookList.empty();
 
-			for (var i = 0; i < books.length; i++) {
-				var book = makeBook(books[i]);
-				bookList.append(book);
-			}
+			// for (var i = 0; i < books.length; i++) {
+			// 	var book = makeBook(books[i]);
+			// 	bookList.append(book);
+			// }
 		},
 		error: function(error) {
 			console.log(error);
 		}
 	});
+}
+
+function showBooks(books) {
+	var bookList = $('#resultsGoogleBooks');
+	var bookRow;
+
+	for (var i = 0; i < books.length; i++) {
+		if (i % 2 === 0) {
+			// start new book row
+			bookRow = $('<div>').addClass('row');
+
+			// create book column
+			var bookCol = $('<div>').addClass('col-xs-6');
+
+			// add book to column
+			bookCol.append(makeBook(books[i]));
+
+			// add column to bookrow
+			bookRow.append(bookCol);
+
+			// if this is the last book, append the row
+			if (i === books.length - 1) {
+				// add bookrow to booklist
+				bookList.append(bookRow);
+			}
+		} else {
+			// create book column
+			var bookCol = $('<div>').addClass('col-xs-6');
+
+			// add book to column
+			bookCol.append(makeBook(books[i]));
+
+			// add column to bookrow
+			bookRow.append(bookCol);
+			
+			// add bookrow to booklist
+			bookList.append(bookRow);
+		}
+	}
 }
 
 function makeBook(book) {
@@ -63,6 +104,7 @@ function makeBook(book) {
 	var ratingRow = $('<div>').addClass('row');
 	var ratingDiv = '<div class="col-xs-8">' + stars + '</div>';
 	var buttonRow = '';
+
 	try {
 		buttonRow = '<div class="row"><div class="col-xs-12"><a class="btn btn-info btn-block" href="' +
 		book.saleInfo.buyLink + '" target="_blank">Buy $' + 
