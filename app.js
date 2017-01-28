@@ -5,6 +5,10 @@
      var gifDiv = $('#resultsGiphy');
      gifQueryUrl = "https://api.giphy.com/v1/gifs/random?tag=" + term + "&api_key=dc6zaTOxFJmzC";
      $("#resultsGiphy").empty();
+     newDiv = $('<div class="well">');
+     header = $('<h3 class="gifHead well">').html(term+ " Gifs");
+     newDiv.append(header);
+     imgDiv = $('<div class="gifContainer">');
      for (i = 0; i < 4; i++) {
 
          $.ajax({
@@ -17,17 +21,19 @@
                  gif = response.data;
                  console.log(response);
                  
-                 newDiv = $('<div>');
+                 
                  pic = $('<img>').attr({
                      class: 'giphy-embed',
                      src: gif.image_url,
                      width: 220,
                      height: 150,
                  });
-                 gifDiv.append(pic);
+                 imgDiv.append(pic);
              });
 
      };
+     newDiv.append(imgDiv);
+     gifDiv.append(newDiv);
  }
 
  $(document).ready(function () {
