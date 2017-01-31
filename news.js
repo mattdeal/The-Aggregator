@@ -2,7 +2,7 @@ $(document).on('click', "#searchButton", function() {
 	console.log("Testing");
 	var searchData = $("#searchTerm").val();
 	console.log(searchData);
-	var queryUrl = "https://webhose.io/search?token=cf277ea8-e083-4791-80a0-3e31813ea121&size=3&format=json&q=" + searchData + "";
+	var queryUrl = "https://webhose.io/search?token=cf277ea8-e083-4791-80a0-3e31813ea121&size=3&format=json&q=language%3A(english)" + searchData + "";
 
     $.ajax({
         url: queryUrl,
@@ -29,8 +29,8 @@ $(document).on('click', "#searchButton", function() {
                 title.prepend(postArray[i].title);
                 author.prepend(postArray[i].author);
                 published.prepend(postArray[i].published);
-                link.prepend(postArray[i].url);
-                //var subStringed = postArray[i].text.substring(0,200)
+                var original = postArray[i].url
+                link.prepend("<a href = postArray[i].url>Original Article Link</a>");
                 text.prepend(postArray[i].text.substring(0, 200));
 
 
@@ -42,6 +42,7 @@ $(document).on('click', "#searchButton", function() {
 
 
                 $("#resultsNews").prepend(newDiv);
+            
             };
 
         }
@@ -51,4 +52,3 @@ $(document).on('click', "#searchButton", function() {
 
 	
 	
-

@@ -103,3 +103,8 @@ button {
 #searchTerm {
 	height: 35px;
 }
+
+#resultsNews {
+	background: white 
+	border-radius: 25px
+}
