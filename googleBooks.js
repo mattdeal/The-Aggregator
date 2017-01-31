@@ -1,17 +1,13 @@
-// URL - replace everything after q= with the query 
-// https://www.googleapis.com/books/v1/volumes?q=flowers
-
-// pull out title, author, thumbnail, price and preview?
-
-$(document).ready(function(){
-	// doLookup('flowers');
-	$('#searchButton').on('click', function(event) {
-		event.preventDefault();
-		doLookup($('#searchTerm').val().trim());
-	});
-});
+// $(document).ready(function(){
+// 	// doLookup('flowers');
+// 	$('#searchButton').on('click', function(event) {
+// 		event.preventDefault();
+// 		doLookup($('#searchTerm').val().trim());
+// 	});
+// });
 
 function doLookup(query) {
+
 	$.ajax({
 	    url: 'https://www.googleapis.com/books/v1/volumes?q=' + query + "&maxResults=4",
 		type: 'GET',
@@ -36,6 +32,8 @@ function doLookup(query) {
 
 function showBooks(books) {
 	var bookList = $('#resultsGoogleBooks');
+	booklist.empty();
+	
 	var bookRow;
 
 	for (var i = 0; i < books.length; i++) {
