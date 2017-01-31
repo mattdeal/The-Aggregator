@@ -3,13 +3,117 @@
 
 // pull out title, author, thumbnail, price and preview?
 
+
+
 $(document).ready(function(){
+
 	// doLookup('flowers');
 	$('#searchButton').on('click', function(event) {
 		event.preventDefault();
-		doLookup($('#searchTerm').val().trim());
+		searchTerm = $('#searchTerm').val();
+		if (searchTerm.length > 2) {
+        doLookup(searchTerm);
+		gifCall(searchTerm);
+		newsCall(searchTerm);
+	}
+	//handler for if the search box is blank or short
+	 else {
+		
+
+
+	}
 	});
 });
+
+ 
+
+function newsCall(searchData) {
+
+	var queryUrl = "https://webhose.io/search?token=cf277ea8-e083-4791-80a0-3e31813ea121&size=3&format=json&q=" + searchData + "";
+
+    $.ajax({
+        url: queryUrl,
+
+        success: function(data) {
+            var postData = (data);
+            var postArray = postData.posts;
+            console.log(postData);
+            //console.log(postArray[i].text)
+            //console.log(postArray[0]);
+
+            //variables to set up news div
+
+            $("#resultsNews").empty();
+
+            console.log("array length" + postArray.length);
+            for (var i = 0; i < postArray.length; i++) {
+                var newDiv = $("<div></div>");
+                var title = $("<div id ='title'>");
+                var author = $("<div id ='author'>");
+                var link = $("<div id ='url'>");
+                var published = $("<div id='published'>");
+                var text = $("<div id='text'>");
+                title.prepend(postArray[i].title);
+                author.prepend(postArray[i].author);
+                published.prepend(postArray[i].published);
+                link.prepend(postArray[i].url);
+                //var subStringed = postArray[i].text.substring(0,200)
+                text.prepend(postArray[i].text.substring(0, 200));
+
+
+                newDiv.prepend(text);
+                newDiv.prepend(link);
+                newDiv.prepend(published);
+                newDiv.prepend(author);
+                newDiv.prepend(title);
+
+
+                $("#resultsNews").prepend(newDiv);
+            };
+
+        }
+
+    });
+};
+
+
+ function gifCall(term) {
+     //debugger;
+   
+     var gifDiv = $('#resultsGiphy');
+     gifQueryUrl = "https://api.giphy.com/v1/gifs/random?tag=" + term + "&api_key=dc6zaTOxFJmzC";
+     $("#resultsGiphy").empty();
+     newDiv = $('<div class="well">');
+     header = $('<h3 class="gifHead well">').html(term+ " Gifs");
+     newDiv.append(header);
+     imgDiv = $('<div class="gifContainer">');
+     for (i = 0; i < 4; i++) {
+
+         $.ajax({
+             url: gifQueryUrl,
+             type: 'GET',
+             dataType: 'jsonp',
+
+         })
+             .done(function (response) {
+                 gif = response.data;
+                 console.log(response);
+                 
+                 
+                 pic = $('<img>').attr({
+                     class: 'giphy-embed',
+                     src: gif.image_url,
+                     width: 220,
+                     height: 150,
+                 });
+                 imgDiv.append(pic);
+             });
+
+     };
+     newDiv.append(imgDiv);
+     gifDiv.append(newDiv);
+ }
+
 
 function doLookup(query) {
 	$.ajax({

@@ -1,35 +1,6 @@
 
 function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = res.replace(/\{\{(.*?)\}\}/g, function (e, r) { return t[n][r] }) } return res }
- function gifCall(term) {
-     //debugger;
-   
-     var gifDiv = $('#resultsGiphy');
-     gifQueryUrl = "https://api.giphy.com/v1/gifs/random?tag=" + term + "&api_key=dc6zaTOxFJmzC";
-     $("#resultsGiphy").empty();
-     for (i = 0; i < 4; i++) {
 
-         $.ajax({
-             url: gifQueryUrl,
-             type: 'GET',
-             dataType: 'jsonp'
-
-         })
-             .done(function (response) {
-                 gif = response.data;
-                 console.log(response);
-                 
-                 newDiv = $('<div>');
-                 pic = $('<img>').attr({
-                     class: 'giphy-embed',
-                     src: gif.image_url,
-                     width: 220,
-                     height: 150
-                 });
-                 gifDiv.append(pic);
-             });
-
-     };
- }
 
  $(document).ready(function () {
      $("#searchButton").on("click", function (e) {
@@ -64,7 +35,7 @@ function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = 
          
          searchTerm = $('#searchTerm').val();
          
-             gifCall(searchTerm);
+          
 
 
        
