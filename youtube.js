@@ -3,24 +3,24 @@ function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = 
  function gifCall(term) {
      //debugger;
    
-     var gifDiv = $('#resultsGiphy');
+     var gifDiv = $("#resultsGiphy");
      gifQueryUrl = "https://api.giphy.com/v1/gifs/random?tag=" + term + "&api_key=dc6zaTOxFJmzC";
      $("#resultsGiphy").empty();
      for (i = 0; i < 4; i++) {
 
          $.ajax({
              url: gifQueryUrl,
-             type: 'GET',
-             dataType: 'jsonp'
+             type: "GET",
+             dataType: "jsonp"
 
          })
              .done(function (response) {
                  gif = response.data;
                  console.log(response);
                  
-                 newDiv = $('<div>');
-                 pic = $('<img>').attr({
-                     class: 'giphy-embed',
+                 newDiv = $("<div>");
+                 pic = $("<img>").attr({
+                     class: "giphy-embed",
                      src: gif.image_url,
                      width: 220,
                      height: 150
@@ -32,6 +32,15 @@ function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = 
  }
 
  $(document).ready(function () {
+
+     $("#searchButton").attr("disabled", true);
+     $("#searchTerm").keyup(function() {
+         if ($(this).val().length > 0)
+             $("#searchButton").attr("disabled", false);
+         else
+             $("#searchButton").attr("disabled", true);
+     });
+     
      $("#searchButton").on("click", function (e) {
          e.preventDefault();
          $("#logo").addClass("imgAnimate");
@@ -51,24 +60,24 @@ function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = 
          //        clearInterval(idSearch);
          //    } else {                 
          //        posV--; 
-         //        elem.style.top = posV + 'px';         
+         //        elem.style.top = posV + "px";         
          //    }
          //    if (posH === 350) {
          //        clearInterval(idSearch);
          //    } else {
          //        posH++;             
-         //        elem.style.left = posH + 'px';
+         //        elem.style.left = posH + "px";
          //    }
 
          //}
          
-         searchTerm = $('#searchTerm').val();
+         searchTerm = $("#searchTerm").val();
          
              gifCall(searchTerm);
 
 
        
-         //doLookup($('#searchTerm').val().trim());
+         //doLookup($("#searchTerm").val().trim());
          // prepare the request
          console.log("it works!");
          var request = gapi.client.youtube.search.list({
