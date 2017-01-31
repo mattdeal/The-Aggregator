@@ -13,6 +13,6 @@ function search() {
 
     request.execute(function (response) {
         var str = JSON.stringify(response.result);
-        $('#resultsYouTube').html('<span>' + str + '</span>');
+        $('#resultsYouTube').html('<pre>' + str + '</pre>');
     });
 }

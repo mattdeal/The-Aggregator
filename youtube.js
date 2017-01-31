@@ -1,4 +1,5 @@
- function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = res.replace(/\{\{(.*?)\}\}/g, function (e, r) { return t[n][r] }) } return res }
+
+function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = res.replace(/\{\{(.*?)\}\}/g, function (e, r) { return t[n][r] }) } return res }
  function gifCall(term) {
      //debugger;
    
@@ -10,7 +11,7 @@
          $.ajax({
              url: gifQueryUrl,
              type: 'GET',
-             dataType: 'jsonp',
+             dataType: 'jsonp'
 
          })
              .done(function (response) {
@@ -22,7 +23,7 @@
                      class: 'giphy-embed',
                      src: gif.image_url,
                      width: 220,
-                     height: 150,
+                     height: 150
                  });
                  gifDiv.append(pic);
              });
@@ -33,6 +34,33 @@
  $(document).ready(function () {
      $("#searchButton").on("click", function (e) {
          e.preventDefault();
+         $("#logo").addClass("imgAnimate");
+         $("#searchArea").addClass("searchAnimate");
+         $("#pageHeader").addClass("page-headerAnimate");
+         $("#headerRow").addClass("pageRow");
+         //var elem = document.getElementById("searchArea");
+         //var elemImage = document.getElementById("logo");
+         //var posH = 0;
+         //var posV = 0;
+         //var imgHeight = 0;
+         //var imgWidth = 0;
+         //var idSearch = setInterval(frame, 1);
+         //var idImg = setInterval(frame, 1);
+         //function frame() {
+         //    if (posV === -330) {
+         //        clearInterval(idSearch);
+         //    } else {                 
+         //        posV--; 
+         //        elem.style.top = posV + 'px';         
+         //    }
+         //    if (posH === 350) {
+         //        clearInterval(idSearch);
+         //    } else {
+         //        posH++;             
+         //        elem.style.left = posH + 'px';
+         //    }
+
+         //}
          
          searchTerm = $('#searchTerm').val();
          

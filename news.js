@@ -15,8 +15,8 @@ $(document).on('click', "#searchButton", function() {
             //console.log(postArray[0]);
 
             //variables to set up news div
-           
-            
+
+            $("#resultsNews").empty();
 
             console.log("array length" + postArray.length);
             for (var i = 0; i < postArray.length; i++) {
