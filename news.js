@@ -20,7 +20,7 @@ $(document).on('click', "#searchButton", function() {
 
             console.log("array length" + postArray.length);
             for (var i = 0; i < postArray.length; i++) {
-                var newDiv = $("<div></div>");
+                var newDiv = $(("<div class = 'animated bounce'></div>"));
                 var title = $("<div id ='title'>");
                 var author = $("<div id ='author'>");
                 var link = $("<div id ='url'>");
