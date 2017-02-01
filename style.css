@@ -226,4 +226,5 @@ button {
 #resultsNews {
 	background: white 
 	border-radius: 25px
+    overflow: auto;
 }
