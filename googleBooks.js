@@ -73,24 +73,35 @@ function showBooks(books) {
 
 function makeBook(book) {
 	var authors = '';
-	if (book.volumeInfo.authors) {
+	try {
 		authors = book.volumeInfo.authors.join(', ');
+	} catch(err) {
+		console.log(err);
 	}
 
 	var image = '';
-	if (book.volumeInfo.imageLinks.smallThumbnail) {
+	try {
 		image = book.volumeInfo.imageLinks.smallThumbnail;
+	} catch(err) {
+		console.log(err);
 	}
 
 	var rating = 0;
-	if (book.volumeInfo.averageRating) {
+	try {
 		rating = book.volumeInfo.averageRating;
-	}
-	var stars = '';
-	for (var i = rating; i > 0; i--) {
-		stars += '<div class="glyphicon glyphicon-star"></div>';
+	} catch(err) {
+		console.log(err);
 	}
 
+	var stars = '';
+	try {
+		for (var i = rating; i > 0; i--) {
+			stars += '<div class="glyphicon glyphicon-star"></div>';
+		}
+	} catch(err) {
+		console.log(err);
+	}
+	
 	var bookDiv = $('<div>').addClass('book').addClass('well');
 	var outerRow = $('<div>').addClass('row');
 	var col = $('<div>').addClass('col-xs-12');
