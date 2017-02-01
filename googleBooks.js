@@ -101,7 +101,7 @@ function makeBook(book) {
 		console.log(err);
 	}
 	
-	var bookDiv = $('<div>').addClass('book').addClass('well');
+	var bookDiv = $('<div>').addClass('well book wow bounceInLeft');
 	var outerRow = $('<div>').addClass('row');
 	var col = $('<div>').addClass('col-xs-12');
 	var titleRow = '<div class="row"><div class="col-xs-12"><h4>' + 
