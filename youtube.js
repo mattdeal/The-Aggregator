@@ -1,34 +1,45 @@
 
 function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = res.replace(/\{\{(.*?)\}\}/g, function (e, r) { return t[n][r] }) } return res }
- function gifCall(term) {
+function gifCall(term) {
      //debugger;
-   
-     var gifDiv = $("#resultsGiphy");
+    //grab container div
+     var gifDiv = $('#resultsGiphy');
+     //create uri with search term
      gifQueryUrl = "https://api.giphy.com/v1/gifs/random?tag=" + term + "&api_key=dc6zaTOxFJmzC";
+     //empty anything in div
      $("#resultsGiphy").empty();
+     //create container for gif results and create header with search term
+     newDiv = $('<div class="well">');
+     header = $('<h3 class="gifHead well">').html(term+ " Gifs");
+     newDiv.append(header);
+     imgDiv = $('<div class="gifContainer">');
+     //call api for gifs and place in img elements then add to gif container
      for (i = 0; i < 4; i++) {
 
          $.ajax({
              url: gifQueryUrl,
-             type: "GET",
-             dataType: "jsonp"
+             type: 'GET',
+             dataType: 'jsonp',
 
          })
              .done(function (response) {
                  gif = response.data;
                  console.log(response);
                  
-                 newDiv = $("<div>");
-                 pic = $("<img>").attr({
-                     class: "giphy-embed",
+                 
+                 pic = $('<img>').attr({
+                     class: 'giphy-embed',
                      src: gif.image_url,
-                     width: 220,
-                     height: 150
+                     width: 250,
+                     height: 150,
                  });
-                 gifDiv.append(pic);
+                 pic.addClass('wow rubberBand');
+                 imgDiv.append(pic);
              });
 
      };
+     newDiv.append(imgDiv);
+     gifDiv.append(newDiv);
  }
 
  $(document).ready(function () {
