@@ -31,7 +31,7 @@ function doLookup(query) {
 
 function showBooks(books) {
 	var bookList = $('#resultsGoogleBooks');
-	booklist.empty();
+	bookList.empty();
 	
 	var bookRow;
 

@@ -16,7 +16,7 @@ $(document).ready(function() {
  //    	}
  //     });
 
-	$('#searchButton').on('click', function(e) {
+	$(document).on('click', '#searchButton', function(e) {
 		e.preventDefault();
 
 		var searchTerm = $("#searchTerm").val().trim();
