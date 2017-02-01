@@ -22,6 +22,7 @@ $(document).on('click', "#searchButton", function() {
             for (var i = 0; i < postArray.length; i++) {
                 var newDiv = $("<div></div>");
                 var title = $("<div id ='title'>");
+                title.addClass('well');
                 var author = $("<div id ='author'>");
                 var link = $("<div id ='url'>");
                 var published = $("<div id='published'>");
@@ -30,7 +31,7 @@ $(document).on('click', "#searchButton", function() {
                 author.prepend(postArray[i].author);
                 published.prepend(postArray[i].published);
                 var original = postArray[i].url
-                link.prepend("<a href = postArray[i].url>Original Article Link</a>");
+                link.prepend("<a href =" + postArray[i].url+">Original Article Link</a>");
                 text.prepend(postArray[i].text.substring(0, 200));
 
 
@@ -39,6 +40,7 @@ $(document).on('click', "#searchButton", function() {
                 newDiv.prepend(published);
                 newDiv.prepend(author);
                 newDiv.prepend(title);
+
 
 
                 $("#resultsNews").prepend(newDiv);
