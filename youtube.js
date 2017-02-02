@@ -1,9 +1,38 @@
 
 function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = res.replace(/\{\{(.*?)\}\}/g, function (e, r) { return t[n][r] }) } return res }
+ function gifCall(term) {
+     //debugger;
+   
+     var gifDiv = $("#resultsGiphy");
+     gifQueryUrl = "https://api.giphy.com/v1/gifs/random?tag=" + term + "&api_key=dc6zaTOxFJmzC";
+     $("#resultsGiphy").empty();
+     for (i = 0; i < 4; i++) {
 
+         $.ajax({
+             url: gifQueryUrl,
+             type: "GET",
+             dataType: "jsonp"
 
+         })
+             .done(function (response) {
+                 gif = response.data;
+                 console.log(response);
+                 
+                 newDiv = $("<div>");
+                 pic = $("<img>").attr({
+                     class: "giphy-embed",
+                     src: gif.image_url,
+                     width: 220,
+                     height: 150
+                 });
+                 gifDiv.append(pic);
+             });
+
+     };
+ }
+ 
  $(document).ready(function () {
-
+     new WOW().init();
      $("#searchButton").attr("disabled", true);
      $("#searchTerm").keyup(function() {
          if ($(this).val().length > 0)
@@ -13,6 +42,7 @@ function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = 
      });
      
      $("#searchButton").on("click", function (e) {
+         
          e.preventDefault();
          $("#logo").addClass("imgAnimate");
          $("#searchArea").addClass("searchAnimate");
@@ -42,10 +72,10 @@ function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = 
 
          //}
          
-        
+         searchTerm = $("#searchTerm").val();
+         
+             gifCall(searchTerm);
 
-
-       
          //doLookup($("#searchTerm").val().trim());
          // prepare the request
          console.log("it works!");
@@ -66,7 +96,7 @@ function tplawesome(e, t) { res = e; for (var n = 0; n < t.length; n++) { res = 
              $.each(results.items, function (index, item) {
                 
                  $.get("item.html", function (data) {
-                     $("#results").append("<div class='col-md-4'>" + tplawesome(data, [{ "title": item.snippet.title, "videoid": item.id.videoId }])+"</div>");
+                     $("#results").append("<div class='col-md-4 wow fadeInDown' name='youtube' style='visibility:hidden'>" + tplawesome(data, [{ "title": item.snippet.title, "videoid": item.id.videoId }]) + "</div>");
                  });
              });
              resetVideoHeight();

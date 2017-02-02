@@ -5,9 +5,7 @@
     <!--Jquery-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script>new WOW().init();</script>
+    
     <script src="news.js"></script>
     <script src="googleBooks.js"></script>
     <script src="youtube.js"></script>
@@ -15,24 +13,22 @@
     <script src="search.js"></script>
     <script src="auth.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
-   
-    
-    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/superhero/bootstrap.min.css">
-    
+    <link href="animate.css" rel="stylesheet" />     
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="style.css" rel="stylesheet"/>
-    <script src="assets/javascript/app.js"></script>
+    <script src="wow.js"></script>
    
 </head>
 <body>
     <div class="container">
-        <div id="headerRow" class="row">
+        <div id="headerRow" class="row fadeX">
             <div id="pageHeader" class="co-lg-12">
-                <img id="logo" class="logoImg" src="The Aggregator Logo.png" />
+                <img id="logo" src="The Aggregator Logo Inverted.png" />
                 <form action="#">
-                    <div class="row">
+                    <div class="row fadeX">
                         <div class="col-lg-2"></div>
                         <div id="searchArea" class="input-group col-lg-4 searchArea">
-                            <input type="text" class="form-control input-lg" id="searchTerm" placeholder="Search..." autocomplete="off" required/>
+                            <input type="text" class="form-control input-lg" id="searchTerm" placeholder="Search..." autocomplete="off" required />
                             <div class="input-group-btn ">
                                 <button id="searchButton" type="submit" value="Go!" class="btn btn-info btn-lg">GO!</button>
                             </div>
@@ -41,14 +37,15 @@
                 </form>
             </div>
         </div>
-        
-        <div id="results" class="row">
-           <!--<div class="col-lg-12">
-                <div class="item col-md-" style="display: none">
-                    <h3>{{title}}</h3>
-                    <iframe class="video w100" width="640" height="360" src="//www.youtube.com/embed/{{videoid}}" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>-->
+       
+            <div id="results" class="row">
+                
+            </div>
+       
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="resultsNews"></div>
+            </div>
         </div>
         <div class="row">
             <div class="col-lg-6">
@@ -56,11 +53,6 @@
             </div>
             <div class="col-lg-6">
                 <div id="resultsGiphy"></div>
-            </div>
-       </div>
-       <div class="row">
-            <div class="col-lg-12">
-                <div class="well well-lg" id="resultsNews"></div>
             </div>
         </div>
     </div>
