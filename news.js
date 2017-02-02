@@ -21,6 +21,7 @@ $(document).on('click', "#searchButton", function() {
             console.log("array length" + postArray.length);
             for (var i = 0; i < postArray.length; i++) {
                 var newDiv = $("<div></div>");
+                newDiv.addClass('animated bounce');
                 var title = $("<div id ='title'>");
                 title.addClass('well');
                 var author = $("<div id ='author'>");
